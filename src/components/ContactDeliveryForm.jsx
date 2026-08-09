@@ -286,10 +286,6 @@ export default function ContactDeliveryForm() {
                       <option value="T-Mobile">
                         T-Mobile
                       </option>
-
-                      <option value="Other">
-                        Other
-                      </option>
                     </select>
                   </div>
 
@@ -426,10 +422,6 @@ export default function ContactDeliveryForm() {
 
                       <option value="T-Mobile">
                         T-Mobile
-                      </option>
-
-                      <option value="Other">
-                        Other
                       </option>
                     </select>
                   </div>
