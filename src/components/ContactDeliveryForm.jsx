@@ -213,7 +213,6 @@ export default function ContactDeliveryForm() {
                       type="text"
                       name="owner_name"
                       required
-                      placeholder="John Doe"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -228,7 +227,6 @@ export default function ContactDeliveryForm() {
                       type="tel"
                       name="owner_phone"
                       required
-                      placeholder="+1 234 567 890"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -243,7 +241,6 @@ export default function ContactDeliveryForm() {
                       type="email"
                       name="owner_email"
                       required
-                      placeholder="john@example.com"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -303,7 +300,6 @@ export default function ContactDeliveryForm() {
                         type="text"
                         name="owner_courier_username"
                         required
-                        placeholder="Carrier username"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
@@ -317,7 +313,6 @@ export default function ContactDeliveryForm() {
                         type="password"
                         name="owner_courier_password"
                         required
-                        placeholder="Carrier password"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
@@ -335,7 +330,6 @@ export default function ContactDeliveryForm() {
                       name="gadget_count"
                       min="1"
                       required
-                      placeholder="1"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -365,7 +359,6 @@ export default function ContactDeliveryForm() {
                       type="text"
                       name="receiver_name"
                       required
-                      placeholder="Jane Smith"
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     />
                   </div>
@@ -440,7 +433,6 @@ export default function ContactDeliveryForm() {
                         type="text"
                         name="receiver_courier_username"
                         required
-                        placeholder="Carrier username"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
@@ -454,7 +446,6 @@ export default function ContactDeliveryForm() {
                         type="password"
                         name="receiver_courier_password"
                         required
-                        placeholder="Carrier password"
                         className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                       />
                     </div>
@@ -471,7 +462,6 @@ export default function ContactDeliveryForm() {
                       name="receiver_address"
                       rows="5"
                       required
-                      placeholder="Enter full address..."
                       className="w-full px-3 py-2 border border-gray-300 rounded-none focus:outline-none focus:ring-2 focus:ring-[#FF6600]"
                     ></textarea>
                   </div>
