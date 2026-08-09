@@ -71,8 +71,9 @@ export default function ContactDeliveryForm() {
             className="h-32 w-auto object-contain mb-6"
           />
 
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
-            FedEx Delivery Form
+          <h1 className="text-4xl font-extrabold mb-3">
+            <span className="text-[#4D148C]">Fed</span>
+            <span className="text-[#FF6600]">Ex</span> Delivery Form
           </h1>
 
           <p className="max-w-xl text-gray-500 mb-8">
