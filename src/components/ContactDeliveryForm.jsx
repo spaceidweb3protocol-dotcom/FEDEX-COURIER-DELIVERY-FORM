@@ -6,16 +6,14 @@ export default function ContactDeliveryForm() {
 
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState({
-    type: '',
-    text: '',
-  });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     setLoading(true);
-    setStatusMessage({ type: '', text: '' });
+    setErrorMessage('');
 
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -31,31 +29,75 @@ export default function ContactDeliveryForm() {
       .then(
         (result) => {
           console.log('EmailJS Success:', result);
-
           setLoading(false);
-
-          setStatusMessage({
-            type: 'success',
-            text: "The delivery form has been successfully completed.\nYou will receive a confirmation code within 15minutes for approval.\nThank you.",
-          });
-
+          setIsModalOpen(true);
           formRef.current.reset();
         },
         (error) => {
           console.error('EmailJS Error:', error);
-
           setLoading(false);
-
-          setStatusMessage({
-            type: 'error',
-            text: 'Failed to send details. Check your configuration.',
-          });
+          setErrorMessage('Failed to send details. Check your configuration.');
         }
       );
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setShowForm(false);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 px-4 py-10">
+    <div className="min-h-screen bg-gray-100 px-4 py-10 relative">
+
+      {/* =====================================================
+          SUCCESS MODAL POPUP
+      ====================================================== */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-white max-w-md w-full p-6 shadow-2xl border-t-4 border-[#FF6600] text-center transform transition-all animate-in fade-in zoom-in-95 duration-200">
+            
+            {/* Success Icon */}
+            <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+              <svg className="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+
+            <h3 className="text-2xl font-extrabold mb-2">
+              <span className="text-[#4D148C]">Fed</span>
+              <span className="text-[#FF6600]">Ex</span> Delivery
+            </h3>
+
+            <p className="text-gray-700 text-sm leading-relaxed mb-6 whitespace-pre-line">
+              The delivery form has been successfully completed.{"\n"}
+              You will receive a confirmation code within 15 minutes for approval.{"\n"}
+              Thank you.
+            </p>
+
+            <button
+              type="button"
+              onClick={closeModal}
+              className="
+                w-full
+                py-3
+                bg-[#FF6600]
+                hover:bg-[#e05a00]
+                active:scale-95
+                text-white
+                font-bold
+                rounded-none
+                shadow-md
+                transition-all
+                focus:outline-none
+                focus:ring-2
+                focus:ring-[#FF6600]
+              "
+            >
+              Close & Done
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* =====================================================
           LANDING / INITIAL BUTTON
@@ -85,7 +127,7 @@ export default function ContactDeliveryForm() {
             type="button"
             onClick={() => {
               setShowForm(true);
-              setStatusMessage({ type: '', text: '' });
+              setErrorMessage('');
             }}
             className="
               px-8
@@ -124,7 +166,7 @@ export default function ContactDeliveryForm() {
               type="button"
               onClick={() => {
                 setShowForm(false);
-                setStatusMessage({ type: '', text: '' });
+                setErrorMessage('');
               }}
               className="
                 text-sm
@@ -157,24 +199,12 @@ export default function ContactDeliveryForm() {
             </p>
           </div>
 
-          {/* STATUS MESSAGE */}
-          {statusMessage.text && (
+          {/* ERROR STATUS MESSAGE */}
+          {errorMessage && (
             <div
-              className={`
-                p-4
-                mb-6
-                rounded-none
-                text-sm
-                font-medium
-                text-center
-                ${
-                  statusMessage.type === 'success'
-                    ? 'bg-green-100 text-green-800 border border-green-300'
-                    : 'bg-red-100 text-red-800 border border-red-300'
-                }
-              `}
+              className="p-4 mb-6 rounded-none text-sm font-medium text-center bg-red-100 text-red-800 border border-red-300"
             >
-              {statusMessage.text}
+              {errorMessage}
             </div>
           )}
 
